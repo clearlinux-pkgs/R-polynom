@@ -4,16 +4,20 @@
 #
 Name     : R-polynom
 Version  : 1.3.9
-Release  : 4
+Release  : 5
 URL      : https://cran.r-project.org/src/contrib/polynom_1.3-9.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/polynom_1.3-9.tar.gz
 Summary  : A Collection of Functions to Implement a Class for Univariate
 Group    : Development/Tools
 License  : GPL-2.0
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
-polynomial manipulations.
+'polynom' is an R collection of functions to implement a class for
+univariate polynomial manipulations.  It is based on the corresponding S
+package by Bill Venables <Bill.Venables@adelaide.edu.au>, and was
+adapted to R by Kurt Hornik <Kurt.Hornik@R-project.org> and Martin
+Maechler <maechler@stat.math.ethz.ch>.
 
 %prep
 %setup -q -c -n polynom
@@ -23,11 +27,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532275288
+export SOURCE_DATE_EPOCH=1552781481
 
 %install
+export SOURCE_DATE_EPOCH=1552781481
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1532275288
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -62,8 +66,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library polynom|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  polynom || :
 
 
 %files
