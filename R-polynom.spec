@@ -4,39 +4,35 @@
 #
 Name     : R-polynom
 Version  : 1.4.0
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/polynom_1.4-0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/polynom_1.4-0.tar.gz
 Summary  : A Collection of Functions to Implement a Class for Univariate
 Group    : Development/Tools
 License  : GPL-2.0
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
-'polynom' is an R collection of functions to implement a class for
-univariate polynomial manipulations.  It is based on the corresponding S
-package by Bill Venables <Bill.Venables@adelaide.edu.au>, and was
-adapted to R by Kurt Hornik <Kurt.Hornik@R-project.org> and Martin
-Maechler <maechler@stat.math.ethz.ch>.
+polynomial manipulations.
 
 %prep
 %setup -q -c -n polynom
+cd %{_builddir}/polynom
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571876982
+export SOURCE_DATE_EPOCH=1589525187
 
 %install
-export SOURCE_DATE_EPOCH=1571876982
+export SOURCE_DATE_EPOCH=1589525187
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
