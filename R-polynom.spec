@@ -4,7 +4,7 @@
 #
 Name     : R-polynom
 Version  : 1.4.1
-Release  : 41
+Release  : 42
 URL      : https://cran.r-project.org/src/contrib/polynom_1.4-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/polynom_1.4-1.tar.gz
 Summary  : A Collection of Functions to Implement a Class for Univariate
